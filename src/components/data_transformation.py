@@ -36,18 +36,12 @@ class DataTransformation:
                     ("scaler",StandardScaler())
                 ]
             )
-            #categorical_features=[]
-            #cat_pipeline=Pipeline( 
-            #steps=[ ("imputer",SimpleImputer(strategy="most_frequent")), ("one_hot_encoder",OneHotEncoder()),
-            #("scaler",StandardScaler())]
-            #)
 
             logging.info("Numerical columns standard scaling completed")
 
             preprocessor=ColumnTransformer(
                 [
                     ("num_pipeline",num_pipeline,numerical_features)
-                    #("cat_pipeline",cat_pipeline,categorical_features)
 
                 ]
             )
