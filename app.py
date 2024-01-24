@@ -35,7 +35,17 @@ def predict_datapoint():
 
         predict_pipeline=PredictPipeline()
         results=predict_pipeline.predict(pred_df)
-        return render_template('home.html',results=results)
+
+        tey_value, co_value, nox_value = results[0].tolist()
+
+# Create a dictionary with the variable names as keys and their corresponding predicted values as values
+        output = {
+            'tey': tey_value,
+            'co': co_value,
+            'nox': nox_value
+        }
+
+        return render_template('home.html',results=output)
     
 if __name__=="__main__":
-    app.run(host="0.0.0.0",debug=True)
+    app.run(host='127.0.0.1',port=5000,debug=True)
