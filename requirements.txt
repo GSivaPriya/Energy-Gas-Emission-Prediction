@@ -5,6 +5,5 @@ matplotlib
 scikit-learn
 joblib
 dill
-flask
 streamlit
 #-e .
